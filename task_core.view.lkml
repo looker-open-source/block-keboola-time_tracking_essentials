@@ -1,5 +1,11 @@
+include: "//@{CONFIG_PROJECT_NAME}/task.view"
+
 view: task {
-  sql_table_name: TASK ;;
+  extends: [task_config]
+}
+
+view: task_core {
+  sql_table_name: @{SCHEMA_NAME}.TASK ;;
 
   dimension: task_id {
     label: "Task ID"

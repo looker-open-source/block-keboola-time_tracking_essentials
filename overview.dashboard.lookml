@@ -1,5 +1,5 @@
-- dashboard: paymo_overview
-  title: Paymo Overview
+- dashboard: overview
+  title: Overview
   layout: newspaper
   elements:
   - name: 'powered by'
@@ -12,7 +12,7 @@
     height: 2
   - title: Week of
     name: Week of
-    model: paymo
+    model: block_keboola_time_tracking_essentials
     explore: entry
     type: single_value
     fields: [entry.start_week]
@@ -29,7 +29,7 @@
     height: 2
   - title: Billable Hours This Month
     name: Billable Hours This Month
-    model: paymo
+    model: block_keboola_time_tracking_essentials
     explore: entry
     type: single_value
     fields: [entry.billable_hours]
@@ -42,7 +42,7 @@
     height: 2
   - title: Non-Billable Hours This Month
     name: Non-Billable Hours This Month
-    model: paymo
+    model: block_keboola_time_tracking_essentials
     explore: entry
     type: single_value
     fields: [entry.non_billable_hours]
@@ -56,7 +56,7 @@
     height: 2
   - title: Billable Hours vs. Previous Month
     name: Billable Hours vs Previous Month
-    model: paymo
+    model: block_keboola_time_tracking_essentials
     explore: entry
     type: looker_line
     fields: [entry.start_day_of_month, entry.billable_hours, entry.start_month]
@@ -115,7 +115,7 @@
     height: 5
   - title: Top Projects by Billable Hours
     name: Top Projects by Billable Hours
-    model: paymo
+    model: block_keboola_time_tracking_essentials
     explore: entry
     type: looker_column
     fields: [project.project, entry.billable_hours]
@@ -166,7 +166,7 @@
     height: 6
   - title: Top Time Eaters (Billable Projects)
     name: Top Time Eaters (Billable Projects)
-    model: paymo
+    model: block_keboola_time_tracking_essentials
     explore: entry
     type: looker_column
     fields: [project.project, entry.non_billable_hours]
@@ -220,7 +220,7 @@
     height: 6
   - title: Billable vs. Non-Billable Project Work (Previous 9 Weeks)
     name: Billable vs Non-Billable Project Work (Previous 9 Weeks)
-    model: paymo
+    model: block_keboola_time_tracking_essentials
     explore: entry
     type: looker_area
     fields: [entry.billable_hours, entry.non_billable_hours, entry.start_week]
@@ -279,7 +279,7 @@
     height: 7
   - title: Weekly Utilization Trend (Previous 9 Weeks)
     name: Weekly Utilization Trend (Previous 9 Weeks)
-    model: paymo
+    model: block_keboola_time_tracking_essentials
     explore: entry
     type: looker_column
     fields: [entry.billable_hours, entry.non_billable_hours, entry.start_week, user.count]
@@ -352,7 +352,7 @@
     height: 7
   - title: Week Tracking
     name: Week Tracking
-    model: paymo
+    model: block_keboola_time_tracking_essentials
     explore: entry
     type: looker_bar
     fields: [entry.billable_hours, entry.non_billable_hours, entry.hours, user.user]
@@ -427,7 +427,7 @@
     height: 2
   - name: 'scaffold'
     type: text
-    subtitle_text: <font size="5px"><font color="#408ef7"><b>Paymo</b></font>
+    subtitle_text: <font size="5px"><font color="#408ef7"><b>Time Tracking Essentials</b></font>
     row: 0
     col: 0
     width: 7

@@ -1,5 +1,11 @@
+include: "//@{CONFIG_PROJECT_NAME}/entry.view"
+
 view: entry {
-  sql_table_name: ENTRY ;;
+  extends: [entry_config]
+}
+
+view: entry_core {
+  sql_table_name: @{SCHEMA_NAME}.ENTRY ;;
 
   dimension: entry_id {
     description: "Has a link to entry in Paymo app."

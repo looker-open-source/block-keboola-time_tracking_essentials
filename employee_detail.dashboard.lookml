@@ -1,5 +1,5 @@
-- dashboard: paymo_employee_detail
-  title: Paymo Employee Detail
+- dashboard: employee_detail
+  title: Employee Detail
   layout: newspaper
   elements:
   - name: 'powered by'
@@ -13,7 +13,7 @@
   - name: 'scaffold'
     type: text
     title_text: ''
-    subtitle_text: <font size="5px"><font color="#408ef7"><b>Paymo</b></font>
+    subtitle_text: <font size="5px"><font color="#408ef7"><b>Time Tracking Essentials</b></font>
     row: 0
     col: 0
     width: 7
@@ -29,7 +29,7 @@
     height: 2
   - title: Time Split
     name: Time Split
-    model: paymo
+    model: block_keboola_time_tracking_essentials
     explore: entry
     type: looker_bar
     fields: [entry.billable_hours, entry.non_billable_hours]
@@ -85,7 +85,7 @@
     height: 5
   - title: Billable Hours
     name: Billable Hours
-    model: paymo
+    model: block_keboola_time_tracking_essentials
     explore: entry
     type: single_value
     fields: [entry.billable_hours]
@@ -141,7 +141,7 @@
     height: 3
   - title: Recorded Hours
     name: Recorded Hours
-    model: paymo
+    model: block_keboola_time_tracking_essentials
     explore: entry
     type: single_value
     fields: [entry.hours]
@@ -197,7 +197,7 @@
     height: 2
   - title: Personal - Week Tracking
     name: Personal - Week Tracking
-    model: paymo
+    model: block_keboola_time_tracking_essentials
     explore: entry
     type: looker_column
     fields: [entry.start_date, entry.hours, entry.within_budget]
@@ -262,7 +262,7 @@
     height: 6
   - title: Hours by Day
     name: Hours by Day
-    model: paymo
+    model: block_keboola_time_tracking_essentials
     explore: entry
     type: looker_column
     fields: [entry.start_date, entry.billable_hours, entry.non_billable_hours]
@@ -326,7 +326,7 @@
     height: 6
   - title: Personal - Client Tracking
     name: Personal - Client Tracking
-    model: paymo
+    model: block_keboola_time_tracking_essentials
     explore: entry
     type: looker_column
     fields: [entry.billable_hours, entry.non_billable_hours, project.project]
@@ -391,7 +391,7 @@
     height: 6
   - title: FTE
     name: FTE
-    model: paymo
+    model: block_keboola_time_tracking_essentials
     explore: entry
     type: looker_bar
     fields: [entry.billable_hours, entry.non_billable_hours, project.project, entry.start_week]
@@ -464,7 +464,7 @@
   - name: Billable Utilization % (Last 6 Months)
     title: Billable Utilization % (Last 6 Months)
     merged_queries:
-    - model: paymo
+    - model: block_keboola_time_tracking_essentials
       explore: workday
       type: looker_line
       fields: [workday.date_month, workday.workdays]
@@ -476,7 +476,7 @@
       dynamic_fields: [{table_calculation: workhours, label: Workhours, expression: "${workday.workdays}*8",
           value_format: !!null '', value_format_name: decimal_0, _kind_hint: measure,
           _type_hint: number}]
-    - model: paymo
+    - model: block_keboola_time_tracking_essentials
       explore: entry
       type: table
       fields: [entry.start_month, entry.billable_hours]
@@ -545,7 +545,7 @@
     height: 6
   - title: Personal - Log
     name: Personal - Log
-    model: paymo
+    model: block_keboola_time_tracking_essentials
     explore: entry
     type: table
     fields: [entry.start_date, project.project, entry.hours, entry.billable_hours,
@@ -628,7 +628,7 @@
     default_value: ''
     allow_multiple_values: false
     required: true
-    model: paymo
+    model: block_keboola_time_tracking_essentials
     explore: entry
     listens_to_filters: []
     field: user.user
@@ -638,7 +638,7 @@
     default_value: ''
     allow_multiple_values: true
     required: false
-    model: paymo
+    model: block_keboola_time_tracking_essentials
     explore: entry
     listens_to_filters: [Client]
     field: project.project
@@ -648,7 +648,7 @@
     default_value: ''
     allow_multiple_values: true
     required: false
-    model: paymo
+    model: block_keboola_time_tracking_essentials
     explore: entry
     listens_to_filters: []
     field: client.client

@@ -1,5 +1,11 @@
+include: "//@{CONFIG_PROJECT_NAME}/project.view"
+
 view: project {
-  sql_table_name: PROJECT ;;
+  extends: [project_config]
+}
+
+view: project_core {
+  sql_table_name: @{SCHEMA_NAME}.PROJECT ;;
 
   dimension: project_id {
     description: "Has a link to project in Paymo app."
@@ -27,7 +33,6 @@ view: project {
       year
     ]
     convert_tz: no
-    datatype: date
     sql: ${TABLE}."CREATED_DATE" ;;
   }
 

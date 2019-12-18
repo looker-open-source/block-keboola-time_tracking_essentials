@@ -1,5 +1,11 @@
+include: "//@{CONFIG_PROJECT_NAME}/workday.view"
+
 view: workday {
-  sql_table_name: WORKDAY ;;
+  extends: [workday_config]
+}
+
+view: workday_core {
+  sql_table_name: @{SCHEMA_NAME}.WORKDAY ;;
 
   dimension_group: date {
     type: time
@@ -12,7 +18,6 @@ view: workday {
       year
     ]
     convert_tz: no
-    datatype: date
     sql: ${TABLE}."DATE" ;;
   }
 

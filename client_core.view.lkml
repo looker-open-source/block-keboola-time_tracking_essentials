@@ -1,5 +1,11 @@
+include: "//@{CONFIG_PROJECT_NAME}/client.view"
+
 view: client {
-  sql_table_name: CLIENT ;;
+  extends: [client_config]
+}
+
+view: client_core {
+  sql_table_name: @{SCHEMA_NAME}.CLIENT ;;
 
   dimension: client_id {
     description: "Has a link to client in Paymo app."

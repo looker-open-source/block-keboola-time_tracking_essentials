@@ -38,44 +38,21 @@
 # The connection name can be changed in the manifest file if desired, along with
 # other constants used by this block (Keboola will automatically create a connection
 # with this name)
-connection: "@{connection}"
 
-# include all the views
-include: "/views/**/*.view"
+connection: "@{CONNECTION}"
 
-# include all lookml dashboards
+include: "*.view"
+include: "*.explore.lkml"
 include: "*.dashboard.lookml"
-
-datagroup: salesforce_mrr_default_datagroup {
-  # sql_trigger: SELECT MAX(id) FROM etl_log;;
-  max_cache_age: "1 hour"
-}
+include: "//@{CONFIG_PROJECT_NAME}/*.view.lkml"
+include: "//@{CONFIG_PROJECT_NAME}/*.model.lkml"
+include: "//@{CONFIG_PROJECT_NAME}/*.dashboard.lkml"
 
 explore: entry {
   label: "Project Management"
-  join: user {
-    type: left_outer
-    sql_on: ${entry.user_id}=${user.user_id} ;;
-    relationship: many_to_one
-  }
-
-  join: task {
-    type: left_outer
-    sql_on: ${entry.task_id}=${task.task_id} ;;
-    relationship: many_to_one
-  }
-
-  join: project {
-    type: left_outer
-    sql_on: ${task.project_id}=${project.project_id} ;;
-    relationship: many_to_one
-  }
-
-  join: client {
-    type: left_outer
-    sql_on: ${project.client_id}=${client.client_id} ;;
-    relationship: many_to_one
-  }
+  extends: [entry_config]
 }
 
-explore: workday {}
+explore: workday {
+  extends: [workday_config]
+}

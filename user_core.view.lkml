@@ -1,5 +1,11 @@
+include: "//@{CONFIG_PROJECT_NAME}/user.view"
+
 view: user {
-  sql_table_name: USER ;;
+  extends: [user_config]
+}
+
+view: user_core {
+  sql_table_name: @{SCHEMA_NAME}.USER ;;
 
   dimension: user_id {
     description: "Has a link to user in Paymo app."
