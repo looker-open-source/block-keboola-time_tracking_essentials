@@ -27,7 +27,7 @@
   "auxiliary_projects": [
     {
       "git_uri": "git://github.com/llooker/block-keboola-time_tracking_essentials-config.git",
-      "git_ref": "4211cec281bd119a0a7d74b2ee4c0b8eb1d3614b",
+      "git_ref": "9b6c92fc5aff83ce047a40d8267a79b2a4c86639",
       "label": "Time Tracking Essentials by Keboola Config",
       "constant_name": "CONFIG_PROJECT_NAME"
     }
